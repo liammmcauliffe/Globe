@@ -2,8 +2,6 @@
 
 A stunning terminal-based 3D Earth renderer written in C that displays a spinning, textured globe using ASCII characters and terminal colors.
 
-![ASCII Globe Demo](assets/images/globe-medium.png)
-
 ![ASCII Globe Animation](assets/gifs/globe.gif)
 
 ## What it does
