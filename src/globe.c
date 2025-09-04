@@ -37,8 +37,8 @@ typedef struct
 } Texture;
 
 // screen dimensions
-int WIDTH = 800;
-int HEIGHT = 200;
+int WIDTH = 700;
+int HEIGHT = 150;
 
 // sphere numbers
 float SPHERE_RADIUS = 1.0;
