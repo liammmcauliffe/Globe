@@ -1,74 +1,82 @@
-# ASCII Globe 🌍
+# ASCII 3D Globe in C
 
-A stunning terminal-based 3D Earth renderer written in C that displays a spinning, textured globe using ASCII characters and terminal colors.
+A terminal-based 3D Earth renderer written in C that displays a spinning, textured globe using ASCII characters and terminal colors.
 
-![ASCII Globe Animation](assets/gifs/globe.gif)
+<div align="center">
+  <img src="assets/gifs/globe.gif" alt="ASCII Globe Animation" width="300" />
+</div>
 
-## What it does
+- **Real Earth texture mapping** (from NASA’s Blue Marble collection)
+- **Mathematical ray casting** to project a 3D sphere onto a 2D screen
+- **Smooth rotation** with configurable speed
+- **ANSI color codes** for realistic terrain representation
 
-This program renders a 3D Earth in your terminal that:
-
-- ✨ Spins continuously with smooth animation
-- 🗺️ Uses real Earth texture mapping (if you have `earth_map.jpg`)
-- 🌍 Classifies terrain types (ocean, forest, desert, mountains, snow) with different colors
-- 🎨 Renders using ASCII characters with varying intensity based on terrain
-- ⚡ Runs at 120 FPS for smooth animation
-
-### Different Aspect Ratios
-
-| Small (40x10)                                 | Medium (700x150)                                | Large (1600x400)                              |
-| --------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
-| ![Small Globe](assets/images/globe-small.png) | ![Medium Globe](assets/images/globe-medium.png) | ![Large Globe](assets/images/globe-large.png) |
+---
 
 ## Features
 
-- **3D Ray-Sphere Intersection**: Mathematical ray casting to project 3D sphere onto 2D screen
-- **Texture Mapping**: Maps 2D Earth texture onto 3D sphere surface
-- **Terrain Classification**: Automatically detects and colors different terrain types
-- **Real-time Animation**: Smooth rotation with configurable speed
-- **Terminal Colors**: Uses ANSI color codes for realistic terrain representation
-- **Fallback Rendering**: Works even without texture file using default colors
+- 3D math: ray-sphere intersection, 3D rotations, coordinate transformations
+- Texture mapping: maps 2D Earth textures onto a 3D sphere surface
+- Terrain detection: automatically detects and colors terrain types
+- Terminal graphics: real-time rendering with ANSI escape codes and screen buffering
+- Performance: double-buffered rendering for smooth animation
+
+---
+
+## Aspect Ratios
+
+The globe shape depends on your terminal size and zoom level.
+
+| Size   | Dimensions | Example Image                                                               |
+| ------ | ---------- | --------------------------------------------------------------------------- |
+| Small  | 40x10      | <img src="assets/images/globe-small.png" alt="Small Globe" width="150" />   |
+| Medium | 700x150    | <img src="assets/images/globe-medium.png" alt="Medium Globe" width="200" /> |
+| Large  | 1600x400   | <img src="assets/images/globe-large.png" alt="Large Globe" width="250" />   |
+
+---
 
 ## Requirements
 
 - C compiler (gcc recommended)
 - Math library (`-lm` flag)
-- `stb_image.h` library (included)
-- Terminal with color support
-- Optional: `earth_map.jpg` for realistic Earth texture
+- [`stb_image.h`](https://raw.githubusercontent.com/nothings/stb/013ac3beddff3dbffafd5177e7972067cd2b5083/stb_image.h) (place it in `src/`)
+- Terminal with color and zoom support
+- `earth_map.jpg` texture (download [here](https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.jpg))
 
-## 🚀 Quick Start
+---
+
+## Quick Start
 
 ```bash
-# Compile and run
+# inside the project root
 gcc -O3 -o globe src/globe.c -lm
 ./globe
+
+    Ctrl+C to quit
 ```
 
-**See it in action:** The globe spins smoothly at 120 FPS with realistic terrain colors!
+---
 
-## Controls
+## Key Algorithms
 
-- **Ctrl+C**: Exit the program
+- **Ray-Sphere Intersection** – projects screen coordinates to 3D sphere surface
+- **Texture Mapping** – converts 3D world coordinates to 2D UV texture coordinates
+- **Terrain Classification** – reads RGB values to identify land, ocean, etc.
+- **Screen Buffering** – double-buffered animation for smooth rotation
 
-## Technical Details
+---
 
-### What I learned building this:
+## What I Learned
 
-- **3D Mathematics**: Ray-sphere intersection, 3D rotations, coordinate transformations
-- **Computer Graphics**: Texture mapping, screen projection, color space conversion
-- **Image Processing**: Color analysis, terrain classification algorithms
-- **Terminal Graphics**: ANSI escape codes, screen buffering, real-time rendering
-- **C Programming**: Structs, memory management, modular code organization
+- 3D mathematics and ray-casting
+- How texture mapping works under the hood
+- Image processing and terrain classification
+- Terminal graphics with ANSI escape codes
+- Structs, memory management, and organizing C projects
 
-### Key algorithms:
+---
 
-1. **Ray-Sphere Intersection**: Projects screen coordinates to 3D sphere surface
-2. **Texture Coordinate Mapping**: Converts 3D world coordinates to 2D texture UV coordinates
-3. **Terrain Classification**: Analyzes RGB values to identify terrain types
-4. **Screen Buffering**: Double-buffered rendering for smooth animation
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 Globe/
@@ -83,51 +91,18 @@ Globe/
 │   │   └── globe-large.png      # Large demo screenshot
 │   └── gifs/
 │       └── globe.gif            # Animated demo
-└── README.md            # This file
+└── README.md
 ```
-
-## 🎯 Perfect for Showcasing
-
-This project is ideal for:
-
-- **Portfolio demos** - Impressive visual output that stands out
-- **Technical interviews** - Demonstrates 3D math and graphics skills
-- **GitHub profiles** - Eye-catching README with live demos
-- **Learning C** - Great example of graphics programming
-- **Computer graphics** - Shows ray casting and texture mapping
-
-## Customization
-
-You can modify these constants in the code:
-
-- `WIDTH`, `HEIGHT`: Screen dimensions
-- `TARGET_FPS`: Animation speed
-- `ROTATION_SPEED`: How fast the Earth spins
-- Terrain detection thresholds for different biomes
-
-## 🎬 Demo Gallery
-
-The ASCII Globe renders beautifully at different terminal sizes and aspect ratios. Each screenshot shows the smooth animation and realistic terrain colors.
-
-## Notes
-
-This is a practice project for learning C programming and computer graphics concepts. The terrain classification is tuned for a specific Earth texture image, but the program includes fallback rendering for any texture or no texture at all.
-
-## 🤝 Contributing
-
-Feel free to fork, modify, and submit pull requests! This is a great project for:
-
-- Adding new features (lighting, shadows, different planets)
-- Optimizing performance
-- Improving the terrain classification
-- Adding more demo modes
-
-## 📄 License
-
-MIT License - feel free to use this in your own projects!
 
 ---
 
-_Built as a learning exercise in C programming and 3D graphics_ 🚀
+## Notes
 
-**Star this repo if you found it helpful!** ⭐
+- This is a practice project while I’m learning C in my program design class at university.
+- The terrain classification is tuned for a specific Earth texture, but it will still run with other images (or even without textures).
+
+---
+
+## License
+
+MIT License – use this in your own projects.
