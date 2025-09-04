@@ -15,8 +15,8 @@
 #include "stb_image.h" // Image tools
 
 // screen dimensions
-#define WIDTH 50
-#define HEIGHT 14
+#define WIDTH 700
+#define HEIGHT 150
 
 /*  BEST SIZES (Have to adjust terminal zoom to get proper ratios)
     1600x400
