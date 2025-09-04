@@ -1,0 +1,5 @@
+# Ignore compiled binary
+/globe
+
+# Ignore stb_image header
+src/stb_image.h
