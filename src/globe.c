@@ -16,7 +16,7 @@
 
 // screen dimensions
 #define WIDTH 700
-#define HEIGHT 150
+#define HEIGHT 145
 
 /*  BEST SIZES (Have to adjust terminal zoom to get proper ratios)
     1600x400
